@@ -37,7 +37,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         }
       
         // Send an email to the user with the password reset link
-        $resetLink = "http://localhost/Myproj/reset_password.php?token=" . urlencode($token);
+        $resetLink = "http://localhost/Myproj/Maxwell-University/reset_password.php?token=" . urlencode($token);
         $message = "Hello $name,Kindly click $resetLink reset your password.";
         $subject = "MAXWELL PORTAL RESET PASSWORD LINK";
         $senderName = "moriangomomanyi02@gmail.com"; // Replace with your name

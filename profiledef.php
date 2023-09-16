@@ -85,7 +85,6 @@ function getportalCodeFromDatabase($conn,$regNo) {
 
         return $defaultCodeFile;
     }
-
     return null;
 }
 $portalcode = getportalCodeFromDatabase($conn, $regNo);

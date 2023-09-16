@@ -58,3 +58,4 @@ if (password1.type === "password") {
     password1Input.value = password2Input.value;
   });
   
+  

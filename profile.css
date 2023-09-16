@@ -88,3 +88,47 @@ body{
     text-align: left;
     
 }
+#seff{
+    position: absolute;
+    top: 56%;
+    left: 350px;
+    padding: 8px;
+    width:15%;
+    background-color: rgb(183, 71, 71);
+    border: none;
+    border-radius: 5px;
+    color: white;
+}
+#sef{
+    position: absolute;
+    top: 56%;
+    left: 670px;
+    padding: 8px;
+    width:15%;
+    background-color: rgb(34, 182, 91);
+    border: none;
+    border-radius: 5px;
+    color: white;
+}
+#sefff{
+    position: absolute;
+    top: 59%;
+    left: 350px;
+    font-weight: bold;
+}
+
+#token-display{
+    position: absolute;
+    top: 63%;
+    left: 357px;
+    color:  #1b8eb8;
+}
+#token-container {
+    border: 1px solid #1b8eb8;
+    border-radius: 5px;
+    position: absolute;
+    top: 65%;
+    left: 350px;
+    width:65px;
+    height: 25px;
+}

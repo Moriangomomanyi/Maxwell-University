@@ -1,6 +1,11 @@
 <?php
-if ($_SERVER["REQUEST_METHOD"] == "GET" && isset($_GET["token"])) {
+if ($_SERVER["REQUEST_METHOD"] === "POST" && isset($_GET["token"])) {
     // Display the password reset form
+    
+    $password = $_POST["new_password"];
+    $password1 = $_POST["confirm_password"];
+    if ($password === $password1)
+    {
     ?>
 
 <html>
@@ -16,7 +21,7 @@ if ($_SERVER["REQUEST_METHOD"] == "GET" && isset($_GET["token"])) {
             <i class="logo" href="\">
                 <img src="logo.png" 
                 width="60" 
-             height="60" 
+             height="60"
              />
             </i>
                 <pre>
@@ -25,7 +30,7 @@ if ($_SERVER["REQUEST_METHOD"] == "GET" && isset($_GET["token"])) {
             </pre>
           </div> <br>
           <hr><br>
-          <form name="myForm" action="update_password.php" method="post">
+          <form name="myForm" action="update_password.php" method="POST">
           <input type="hidden" name="token" value="<?php echo $_GET["token"]; ?>">
           <label for="new_password">New Password:</label>
           <div class="password-wrapper">
@@ -34,7 +39,7 @@ if ($_SERVER["REQUEST_METHOD"] == "GET" && isset($_GET["token"])) {
                 </div><br>
           <label for="new_password">Confirm Password:</label>
           <div class="password-wrapper">
-          <input type="password" id="confirm_password" name="confirm_password" required  placeholder="Confirm Password">
+          <input type="password" id="confirm_password" name="hhg" required  placeholder="Confirm Password">
           <span id="showPassword" onclick="togglePasswordVisibility()"></span>
                 </div><br>
             <button type="submit" value="Reset Password" id="stif">Submit</button>
@@ -57,7 +62,11 @@ if ($_SERVER["REQUEST_METHOD"] == "GET" && isset($_GET["token"])) {
 </html>
 
     <?php
-} else {
+} 
+else{
+    echo "Password do not match.";
+}
+}else {
     echo "Invalid request.";
 }
 ?>

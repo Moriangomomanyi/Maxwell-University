@@ -8,24 +8,30 @@ $database = "student_portal";
 // Connect to the database
 
 $conn = mysqli_connect($servername, $username, $password, $database);
-    if (!$conn) {
-        die("Connection failed: " . mysqli_connect_error());
-    }
+    // Check if the connection was successful
+if (!$conn) {
+    die("Connection failed: " . mysqli_connect_error());
+}
      // Retrieving the portal creation credentials from the form
-     $Name = $_POST["name"];
-     $Password = $_POST["password1"];
-     $Email = $_POST["email"];
-     $RegNo = $_POST["RegNumber"];
-     $County =$_POST["county"];
+     $Name = strtoupper($_POST["name"]);
+     $Email = strtoupper($_POST["email"]);
+     $RegNo = strtoupper($_POST["RegNumber"]);
+     $County =strtoupper($_POST["county"]);
      $Address = $_POST["address"];
-     $Gender =$_POST["gender"];
+     $Gender =strtoupper($_POST["gender"]);
      $Date =$_POST["date"];
      $ID =$_POST["id"];
-     $Campus =$_POST["campus"];
+     $Campus =strtoupper($_POST["campus"]);
+     $password = $_POST["password1"];
+     $password1 = $_POST["password2"];
+
+     if ($password === $password1)
+     {
       // Function to create a portal page for the user with the default code
- function createPortalPage($Name, $Default_code) {
+ function createPortalPage($Name,$RegNo, $Default_code) {
     $portalContent = str_replace (['$Name'],[$Name],$Default_code);
-    $portalFileName = substr($Name, -2) . "_profile.php";
+    $cleanedRegNo = preg_replace("/[^a-zA-Z0-9]/", "", $RegNo);
+    $portalFileName = strtoupper(substr($cleanedRegNo, -14)) . "_profile.php";
     $file = fopen($portalFileName, "w");
     fwrite($file, $portalContent);
     fclose($file);
@@ -60,14 +66,14 @@ if (!empty($Default_code)) {
     mysqli_begin_transaction($conn);
 
     // Create the portal page for the user with the default code
-    $portalFileName = createPortalPage($Name, $Default_code);
+    $portalFileName = createPortalPage($Name,$RegNo, $Default_code);
     
     // Insert the portal file path into the profile table
     $portalFilePath = mysqli_real_escape_string($conn, $portalFileName);
    
 
     // Insert the portal file path into the validation table$picturePath
-    $portalSql = "INSERT INTO validation (reg_no, PASSWORD, email, portal) VALUES ('$RegNo','$Password', '$Email','$portalFilePath')";
+    $portalSql = "INSERT INTO validation (reg_no, PASSWORD, email, portal) VALUES ('$RegNo','$password', '$Email','$portalFilePath')";
     
     // Perform insertions and check for success
     $validationInsertSuccess = mysqli_query($conn, $portalSql);
@@ -104,13 +110,14 @@ if (!empty($Default_code)) {
         $fileType = $_FILES['profilePicture']['type'];
     
         // Extract the first three initials of the username
-        $initials = strtoupper(substr($Name, 0, 3));
+        $cleanedRegNo = preg_replace("/[^a-zA-Z0-9]/", "", $RegNo);
+        $initials = strtoupper(substr($cleanedRegNo,-14));
     
         // Generate the new file name with the initials and file extension
         $newFileName = $initials . '.' . pathinfo($fileName, PATHINFO_EXTENSION);
     
         // Move the uploaded file to a permanent location with the new file name
-        $destinationPath = 'C:\wamp64\www\Myproj/' . $newFileName; // Set your desired destination directory
+        $destinationPath = 'C:\wamp64\www\Myproj\Maxwell-University/' . $newFileName; // Set your desired destination directory
         
         if (move_uploaded_file($fileTmpPath, $destinationPath)) {
             // Store the file path in the `pictures` column of the `resett` table
@@ -138,6 +145,11 @@ if (!empty($Default_code)) {
             // Error moving the uploaded file
             $pictureMessage = "Error moving the uploaded file.";
         }
+    }
+   
+     }
+     else{
+        echo "Password do not match.";
     }
  
 

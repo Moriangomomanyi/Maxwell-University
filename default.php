@@ -25,7 +25,7 @@
           <ul >
             <li>
                 <p>DASHBOARD</p><br>
-                <a href="$info" target="page-content">
+                <a href="$info" target="iframe" target="page-content">
                     <span><i class="bx bx-user"></i>Personal profile</span>
                     </a>
             </li><br>
@@ -73,7 +73,7 @@
                 <p>
                     SETTINGS
                 </p><br>
-                <a href="/">
+                <a href="change_password.php">
                 <span class="sad"> <i class="bx bx-cog"></i>Change Password</span>
                 </a>
 
@@ -105,7 +105,7 @@
               <div class="dropdown-content hidden">
               <ul>
                 <li>
-                  <a class="dropdown-link hidden" href="$info" id="profileLink"><i class="bx bx-user"></i><span id="prof">Profile</span></a>
+                  <a class="dropdown-link hidden" href="$info" target="iframe" id="profileLink"><i class="bx bx-user"></i><span id="prof">Profile</span></a>
                 </li>
                 <li>
                   <a class="dropdown-link hidden" href="portal.php"id="logoutLink" ><i class="bx bx-log-out"></i><span id="log">Logout</span></a>
@@ -119,8 +119,7 @@
     <div class="page-wrapper">
       <div class="page-content">
         
-      <iframe src="" name="page-content"></iframe>
-      
+       <iframe src="$info" name="iframe" style="height:100%; width:100%;">Profile</iframe>
       </div>
     </div>
 <script>
@@ -138,8 +137,6 @@ pageContent.classList.add('active');
 navContent.classList.add('active');
 containerr.classList.add('active');
 
-   
-   
 } else {
 pageWrapper.classList.remove('active');
 pageContent.classList.remove('active');
