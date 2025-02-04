@@ -117,7 +117,7 @@ if (!empty($Default_code)) {
         $newFileName = $initials . '.' . pathinfo($fileName, PATHINFO_EXTENSION);
     
         // Move the uploaded file to a permanent location with the new file name
-        $destinationPath = 'C:\wamp64\www\Myproj\Maxwell-University/' . $newFileName; // Set your desired destination directory
+        $destinationPath = 'C:\wamp64\www\Maxwell-University/' . $newFileName; // Set your desired destination directory
         
         if (move_uploaded_file($fileTmpPath, $destinationPath)) {
             // Store the file path in the `pictures` column of the `resett` table
