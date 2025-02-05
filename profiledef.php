@@ -22,7 +22,7 @@ if ($result && mysqli_num_rows($result) > 0) {
         $Name = strtoupper($row["Name"]);
         $regNo = strtoupper($row["reg_no"]);
         $Id = strtoupper($row["ID"]);
-        $Email = strtoupper($row["Email"]);
+        $Email = strtoupper($row["EMAIL"]);
         $Campus = strtoupper($row["Campus"]);
         $Gender = strtoupper($row["Gender"]);
         $Date = strtoupper($row["Date"]);

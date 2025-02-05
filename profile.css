@@ -64,7 +64,9 @@ body{
   .line{
     margin-left: 16%;
     margin-right: 14%;
-   
+  }
+  #buttons{
+    margin-top: 100px;
   }
 
 .p{
@@ -90,7 +92,7 @@ body{
 }
 #seff{
     position: absolute;
-    top: 56%;
+    top: 65%;
     left: 350px;
     padding: 8px;
     width:15%;
@@ -101,7 +103,7 @@ body{
 }
 #sef{
     position: absolute;
-    top: 56%;
+    top: 65%;
     left: 670px;
     padding: 8px;
     width:15%;
@@ -112,14 +114,14 @@ body{
 }
 #sefff{
     position: absolute;
-    top: 59%;
+    top: 68%;
     left: 350px;
     font-weight: bold;
 }
 
 #token-display{
     position: absolute;
-    top: 63%;
+    top: 72%;
     left: 357px;
     color:  #1b8eb8;
 }
@@ -127,7 +129,7 @@ body{
     border: 1px solid #1b8eb8;
     border-radius: 5px;
     position: absolute;
-    top: 65%;
+    top: 74%;
     left: 350px;
     width:65px;
     height: 25px;

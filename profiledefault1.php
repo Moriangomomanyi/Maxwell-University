@@ -69,6 +69,12 @@
                           <td>#Campus</td>
                         </tr>
                       </table>
+                      </div>
+                      <div class="line">
+                      <hr>
+                      <hr>
+                      <hr>
+                  
                       <button type="submit" id="seff" onclick="generateToken()">Get Catering Token</button>
                       <p id= "sefff">Current Catering Token:</p>
                       <p id="token-display"></p>
@@ -76,11 +82,7 @@
                         </div>
                       <button type="submit" id="sef">Get Academic Calender</button>
                     </div>
-                    <div class="line">
-                      <hr>
-                      <hr>
-                      <hr>
-                  </div>
+                    
             </div>
            
         </div>

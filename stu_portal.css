@@ -54,7 +54,7 @@ body {
 }
 .search .bx-search {
     position: absolute;
-    left: 170px;
+    left: 150px;
     top: 50%;
     font-size: 1.3rem;
     transform: translateY(-50%);
